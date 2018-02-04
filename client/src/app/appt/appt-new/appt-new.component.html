@@ -1,0 +1,23 @@
+<a [routerLink]="['/dashboard']">Appointments Page</a>
+<h1>New Appointment</h1>
+<br>
+<br>
+
+<form (submit)="onSubmit();" #createAppointment="ngForm">
+    <label>Complaint:</label>
+    <textarea 
+        type="text"
+        name="complaint"
+        required
+        minlength="10"
+        [(ngModel)]="appointment.complaint"
+        #complaint="ngModel"
+    ></textarea>
+    <small [hidden]= "complaint.valid || (complaint.untouched && !createAppointment.submitted)">Minimum characters is 10.</small>
+    <br>
+    <br>
+    <button (click)="cancel()">Cancel</button>
+    <button type="submit">Add Appointment</button>
+</form>
+
+<router-outlet></router-outlet>

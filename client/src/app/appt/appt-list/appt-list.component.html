@@ -1,0 +1,22 @@
+<h1>Doctor's Appointments</h1>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>date</th>
+      <th>time</th>
+      <th>patient name</th>
+      <th>complaint</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let appt of appointments">
+    <tr>
+      <td>{{ appt.date }}</td>
+      <td>{{ appt.time }}</td>
+      <td>{{ appt._user.name }}</td>
+      <td>{{ appt.complaint }}<button  *ngIf="user._id == appt._user._id" class="buttons" (click)="delete(appt._id)">Cancel</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<a [routerLink]="['/dashboard/new']">Add New Appointment</a>
